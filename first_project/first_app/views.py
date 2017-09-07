@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core.handlers.wsgi import WSGIRequest
 
 
 # get detailed info about request
@@ -19,4 +18,8 @@ def debug_request(request):
 # Create your views here.
 def index(request):
     # debug_request(request)
-    return HttpResponse('<em>Hello World!</em>')
+    context = {
+        'foo': 'America Fuck yea!!!',
+        'bar': 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/190px-Flag_of_the_United_States.svg.png'
+    }
+    return render(request, 'first_app/index.html', context)
